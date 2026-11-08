@@ -16,13 +16,21 @@ const sourceJson = `{
 const eventTitle = document.querySelector('#event-title');
 const serviceForm = document.querySelector('#service-form');
 const dataError = document.querySelector('#data-error');
+const showProgramButton = document.querySelector('#show-program');
+const program = document.querySelector('#program');
 
 let data;
+
+function showProgram() {
+  program.innerHTML = data.event.meeting;
+  program.hidden = false;
+}
 
 try {
   data = JSON.parse(sourceJson);
   eventTitle.textContent = data.event.title;
   serviceForm.hidden = false;
+  showProgramButton.addEventListener('click', showProgram);
 } catch {
   dataError.textContent = 'Ошибка данных.';
   dataError.hidden = false;
