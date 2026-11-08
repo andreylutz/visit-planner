@@ -21,6 +21,26 @@ const program = document.querySelector('#program');
 
 let data;
 
+// eslint-disable-next-line no-unused-vars
+function buildReport(services, guideChecked, audioChecked, catalogChecked) {
+  const items = services
+    .filter((service) => {
+      return (
+        (service.id === 'guide' && guideChecked) ||
+        (service.id === 'audio' && audioChecked) ||
+        (service.id === 'catalog' && catalogChecked)
+      );
+    })
+    .map((service) => {
+      const { title, price } = service;
+      return { title: title.trim(), price };
+    });
+
+  const total = items.reduce((sum, item) => sum + item.price, 0);
+
+  return { count: items.length, total, items };
+}
+
 function showProgram() {
   program.innerHTML = data.event.meeting;
   program.hidden = false;
