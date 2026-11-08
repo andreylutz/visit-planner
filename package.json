@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/andreylutz/visit-planner/issues"
   },
-  "homepage": "https://github.com/andreylutz/visit-planner#readme"
+  "homepage": "https://github.com/andreylutz/visit-planner#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0"
+  }
 }
